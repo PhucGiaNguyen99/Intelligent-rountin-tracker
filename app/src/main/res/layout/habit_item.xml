@@ -1,47 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    >
+    android:layout_margin="8dp"
+    android:background="?attr/selectableItemBackground">
 
-    <TextView
-        android:id="@+id/habit_title"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:orientation="vertical"
+        android:padding="8dp">
 
-    <!-- Description of the habit -->
-    <TextView
-        android:id="@+id/habit_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <!-- Time when the habit was created -->
-    <TextView
-        android:id="@+id/habit_creation_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/edit_button"
+        <TextView
+            android:id="@+id/habit_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/delete_button"
+        <!-- Description of the habit -->
+        <TextView
+            android:id="@+id/habit_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Duration -->
+        <TextView
+            android:id="@+id/habit_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duration"
+            android:textSize="14sp" />
+
+        <!-- Target End Time -->
+        <TextView
+            android:id="@+id/habit_target_end_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Target End Time"
+            android:textSize="14sp" />
+
+        <!-- Frequency -->
+        <TextView
+            android:id="@+id/habit_frequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Frequency"
+            android:textSize="14sp" />
+
+        <!-- Is Completed -->
+        <TextView
+            android:id="@+id/habit_is_completed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textSize="14sp" />
+
+        <!-- Streak Count -->
+        <TextView
+            android:id="@+id/habit_streak_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Streak Count"
+            android:textSize="14sp" />
+
+        <!-- Creation Time -->
+        <TextView
+            android:id="@+id/habit_created_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Created Time"
+            android:textSize="14sp" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit" />
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

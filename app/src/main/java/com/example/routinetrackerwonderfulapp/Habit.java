@@ -3,6 +3,7 @@ package com.example.routinetrackerwonderfulapp;
 import java.util.Date;
 
 public class Habit {
+    private int id;
     private String title;
     private String description;
     private int duration;
@@ -12,7 +13,6 @@ public class Habit {
     private int streakCount;    // Later
     private Date creationTime;
 
-
     public Habit(String title, String description) {
         this.title = title;
         this.description = description;
@@ -21,7 +21,27 @@ public class Habit {
         this.frequency = "";
         this.isCompleted = false;
         this.streakCount = 0;
-        this.creationTime = new Date(); // Automatically set the current date and time
+        this.creationTime = new Date();
+    }
+
+    public Habit(int id, String title, String description, int duration, String targetEndTime, String frequency, boolean isCompleted, int streakCount, Date creationTime) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.duration = duration;
+        this.targetEndTime = targetEndTime;
+        this.frequency = frequency;
+        this.isCompleted = isCompleted;
+        this.streakCount = streakCount;
+        this.creationTime = creationTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -82,5 +102,9 @@ public class Habit {
 
     public Date getCreationTime() {
         return creationTime;
+    }
+
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
     }
 }

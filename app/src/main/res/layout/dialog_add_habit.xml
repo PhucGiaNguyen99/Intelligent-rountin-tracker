@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
+    <!-- Input field for habit title -->
     <EditText
         android:id="@+id/habit_title_input"
         android:layout_width="0dp"
@@ -25,5 +26,89 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:inputType="text" />
+
+    <!-- TextView for duration label -->
+    <TextView
+        android:id="@+id/duration_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Duration:"
+        app:layout_constraintTop_toBottomOf="@id/habit_description_input"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- Row for duration spinners -->
+    <LinearLayout
+        android:id="@+id/duration_spinners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/duration_label"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Dropdown for habit duration (hours) -->
+        <Spinner
+            android:id="@+id/duration_hour_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- TextView for separator -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text=":" />
+
+        <!-- Dropdown for habit duration (minutes) -->
+        <Spinner
+            android:id="@+id/duration_minute_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <!-- TextView for target end time label -->
+    <TextView
+        android:id="@+id/target_end_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Target End Date:"
+        app:layout_constraintTop_toBottomOf="@id/duration_spinners"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Row for target end date spinners -->
+    <LinearLayout
+        android:id="@+id/target_end_date_spinners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/target_end_time_label"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Dropdown for target end date (day) -->
+        <Spinner
+            android:id="@+id/target_end_day_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Dropdown for target end date (month) -->
+        <Spinner
+            android:id="@+id/target_end_month_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp" />
+
+        <!-- Dropdown for target end date (year) -->
+        <Spinner
+            android:id="@+id/target_end_year_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

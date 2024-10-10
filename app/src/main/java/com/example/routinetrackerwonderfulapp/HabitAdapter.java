@@ -45,6 +45,21 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitViewHol
             holder.habitTitle.setText(habit.getTitle());
             holder.habitDescription.setText(habit.getDescription());
 
+            // Display duration as "HH:MM" format
+            holder.habitDuration.setText("Duration: " + habit.getDuration() + " mins");
+
+            // Display target end time in readable format
+            holder.habitTargetEndTime.setText("Target End Time: " + habit.getTargetEndTime());
+
+            // Frequency
+            holder.habitFrequency.setText("Frequency: " + habit.getFrequency());
+
+            // Is Completed status
+            holder.habitIsCompleted.setText("Completed: " + (habit.isCompleted() ? "Yes" : "No"));
+
+            // Streak count
+            holder.habitStreakCount.setText("Streak Count: " + habit.getStreakCount());
+
             // Format and display the creation time
             SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault());
             String formattedDate = sdf.format(habit.getCreationTime());
@@ -53,14 +68,15 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitViewHol
             // Bind the click listeners for edit and delete actions
             holder.editButton.setOnClickListener(v -> {
                 if (listener != null) {
-                    listener.onEditClick(habit, currentPosition);  // Use currentPosition instead of position
+                    listener.onEditClick(habit, currentPosition);  // Notify listener MainActivity about the edit action
                 }
             });
 
             holder.deleteButton.setOnClickListener(v -> {
                 if (listener != null) {
-                    listener.onDeleteClick(currentPosition);  // Use currentPosition instead of position
+                    listener.onDeleteClick(currentPosition);  // Notify listener MainActivity about the delete action
                 }
+
             });
         }
     }
@@ -72,7 +88,7 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitViewHol
 
     // Define the ViewHolder class, which holds the views for each habit item
     public static class HabitViewHolder extends RecyclerView.ViewHolder {
-        TextView habitTitle, habitDescription, habitCreationTime;
+        TextView habitTitle, habitDescription, habitDuration, habitTargetEndTime, habitFrequency, habitIsCompleted, habitStreakCount, habitCreationTime;
         Button editButton, deleteButton;
         // Constructor: Bind the views from habit_item.xml
 
@@ -80,9 +96,14 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitViewHol
             super(itemView);
             habitTitle = itemView.findViewById(R.id.habit_title);
             habitDescription = itemView.findViewById(R.id.habit_description);
-            habitCreationTime = itemView.findViewById(R.id.habit_creation_time);
-            editButton= itemView.findViewById(R.id.edit_button);
-            deleteButton= itemView.findViewById(R.id.delete_button);
+            habitDuration = itemView.findViewById(R.id.habit_duration);
+            habitTargetEndTime = itemView.findViewById(R.id.habit_target_end_time);
+            habitFrequency = itemView.findViewById(R.id.habit_frequency);
+            habitIsCompleted = itemView.findViewById(R.id.habit_is_completed);
+            habitStreakCount = itemView.findViewById(R.id.habit_streak_count);
+            habitCreationTime = itemView.findViewById(R.id.habit_created_time);
+            editButton = itemView.findViewById(R.id.edit_button);
+            deleteButton = itemView.findViewById(R.id.delete_button);
         }
     }
 
@@ -97,7 +118,12 @@ public class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitViewHol
 
     public interface HabitActionListener {
         void onEditClick(Habit habit, int position);
+
         void onDeleteClick(int position);
+
+        void updateHabitInDatabase(Habit habit);        // Method to update habit in the database
+
+        void deleteHabitFromDatabase(int habitId);      // Method to delete habit from the database
     }
 
 }

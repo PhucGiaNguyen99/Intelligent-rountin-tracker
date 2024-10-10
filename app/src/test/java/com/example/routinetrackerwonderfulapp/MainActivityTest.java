@@ -1,22 +1,31 @@
 package com.example.routinetrackerwonderfulapp;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 28, manifest=Config.NONE)  // Add this to ignore the manifest file warning
+@Config(sdk = 28, manifest = Config.NONE)  // Add this to ignore the manifest file warning
 public class MainActivityTest {
     private MainActivity mainActivity;
+    private Context mockContext;
 
     @Before
     public void setUp() {
@@ -45,3 +54,4 @@ public class MainActivityTest {
         assertTrue(mainActivity.isDuplicateTitle("Exercise")); // Should return true
     }
 }
+
